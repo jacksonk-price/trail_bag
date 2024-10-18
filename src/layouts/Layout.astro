@@ -1,0 +1,75 @@
+---
+interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content="A collection of trail trips" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+	</head>
+	<body>
+		<div class="main-contain">
+			<slot />
+		</div>
+	</body>
+</html>
+<style is:global>
+	@import "/node_modules/luminous-lightbox/dist/luminous-basic.css";
+	.lum-lightbox {
+		background: rgba(0, 0, 0, 0.98) !important;
+	}
+	* {
+		margin: 0;
+		padding: 0;
+		box-sizing: border-box;
+	}
+
+	html, body {
+		min-height: 100%;
+		background-color: #000000;
+	}
+
+	img {
+		max-width: 100%;
+		border-radius: 1rem;
+	}
+
+	hr {
+		margin: 2rem 0;
+	}
+
+	.section__title {
+		font-size: 3.5rem;
+	}
+
+	.main-contain {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		min-height: 100dvh;
+		max-width: 1800px;
+		margin: 0 auto;
+		padding: 2rem 2rem 0 2rem;
+		background-color: #fff;
+	}
+
+	.trip__date {
+        font-size: 1rem;
+        color: gray;
+    }
+
+	@media screen and (max-width: 650px) {
+		.main-contain {
+			padding: 0;
+		}
+	}
+</style>

@@ -1,0 +1,26 @@
+---
+interface Props {
+    pageNumber: string
+}
+
+const { pageNumber } = Astro.props;
+---
+
+<footer class="footer">
+    <p class="footer__page-number">({pageNumber})</p>
+    <p class="footer__copyright">©2024</p>
+</footer>
+
+<style>
+    .footer {
+        display: flex;
+        justify-content: space-between;
+        padding: 2rem;
+    }
+
+    .footer__page-number,
+    .footer__copyright {
+        font-weight: 600;
+        font-size: 1.5rem;
+    }
+</style>

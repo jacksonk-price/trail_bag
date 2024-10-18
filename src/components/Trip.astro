@@ -1,0 +1,103 @@
+---
+interface Props {
+    trip: {
+        name: string;
+        date_range: string;
+        location: string;
+        year: string;
+        url: string;
+        members: string[];
+        images: string[];
+    }
+}
+
+const { trip } = Astro.props;
+---
+<a class="link" href={trip.url} aria-labelledby="seeMore">
+    <section class="trip">
+        <div class="trip__image-container">
+            <img class="trip__image" src="/images/eagle_rock_loop/SUNP0032.webp" alt="">
+        </div>
+        <div class="trip__content">
+            <div class="trip__content-main">
+                <h3 class="trip__name">{trip.name}</h3>
+                <p class="trip__date">{trip.date_range}, {trip.year}</p>
+                <p>📍{trip.location}</p>
+                <!-- {trip.members.map((member) => (
+                    <p>{member}</p>
+                ))} -->
+            </div>
+            <div class="trip__content-foot">
+                <p id="seeMore">See more</p>
+                <img class="arrow-up" src="/images/arrow-up.svg" alt="" height="15" width="15">
+            </div>
+        </div>
+    </section>
+</a>
+
+<hr>
+
+<style>
+    .trip {
+        display: flex;
+        justify-content: start;
+        gap: 5rem;
+        padding: 1rem 0;
+    }
+
+    .trip__image {
+        max-height: 300px;
+    }
+
+    .trip__name {
+        font-size: clamp(1.5rem, 3vw, 2.5rem);
+    }
+
+    .trip__content {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 100%;
+    }
+
+    @media screen and (max-width: 825px) {
+        .trip {
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .trip__content-foot {
+            margin-top: 1rem;
+        }
+    }
+
+    .trip__content-main {
+        display: flex;
+        flex-direction: column;
+        gap: 0.8rem;
+    }
+    
+    .trip__content-foot {
+        display: flex;
+        justify-content: space-between;
+        align-items: end;
+    }
+
+    .trip__content-foot p {
+        font-weight: bold;
+        font-size: 1.3rem;
+    }
+
+    .link {
+        text-decoration: none;
+        color: #000000;
+    }
+
+    .arrow-up {
+        transition: all 0.2s ease;
+    }
+
+    .link:hover .arrow-up {
+        transform: translateY(-5px);
+    }
+</style>

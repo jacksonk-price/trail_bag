@@ -1,0 +1,24 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Trips from '../components/Trips.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout title="Trail Bag">
+	<!-- <div class="hero-container">
+		<h1>WELCOME.</h1>
+		<div class="hero" aria-hidden="true"></div>
+	</div> -->
+	<main>
+		<Trips></Trips>
+		<h2>More to come...</h2>
+	</main>
+	<Footer pageNumber="01"></Footer>
+</Layout>
+
+<style>
+	h2 {
+		text-align: center;
+		font-weight: lighter;
+	}
+</style>

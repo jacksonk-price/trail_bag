@@ -1,0 +1,15 @@
+---
+import tripData from '../data/trips.json';
+import Trip from './Trip.astro';
+---
+<section class="trips">
+    {tripData.trips.map((trip) => (
+          <Trip trip={trip}></Trip>
+    ))}
+</section>
+
+<style>
+    .trips {
+        padding: 0 2rem 2rem 2rem;
+    }
+</style>

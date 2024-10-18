@@ -1,0 +1,55 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Footer from '../../components/Footer.astro';
+import Back from '../../components/Back.astro';
+import tripData from '../../data/trips.json';
+import Gallery from '../../components/Gallery.svelte';
+
+const tripName = "Eagle Rock Loop";
+
+const selectedTrip = tripData.trips.find(trip => trip.name === tripName);
+---
+
+<Layout title="Eagle Rock Loop">
+    <main>
+        <Back></Back>
+        <div class="page-container">
+            <div class="page__head">
+                <h1 class="page__title">{selectedTrip.name}</h1>
+                <p class="trip__date">{selectedTrip.date_range}, {selectedTrip.year}</p>
+                <p class="trip__location">📍{selectedTrip.location}</p>
+            </div>
+            <div>
+                <a class="gallery" href="/images/eagle_rock_loop/IMG_0782.webp">
+                    <img class="w-100 gallery" src="/images/eagle_rock_loop/IMG_0782.webp" alt="">
+                </a>
+            </div>
+            <section>
+                <Gallery imageSrcs={selectedTrip.images} client:load></Gallery>
+            </section>
+        </div>
+	</main>
+	<Footer pageNumber="02"></Footer>
+</Layout>
+
+<style>
+    main {
+        padding: 2rem;
+    }
+
+    .page-container {
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .w-100 {
+        width: 100%;
+    }
+
+    .page__head {
+        margin-bottom: 1rem;
+        display: flex;
+        gap: 0.5rem;
+        flex-direction: column;
+    }
+</style>
