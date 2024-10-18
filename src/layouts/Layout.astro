@@ -24,9 +24,43 @@ const { title } = Astro.props;
 </html>
 <style is:global>
 	@import "/node_modules/luminous-lightbox/dist/luminous-basic.css";
+	/* dm-sans-500 - latin */
+	@font-face {
+		font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+		font-family: 'Noto Sans';
+		font-style: normal;
+		font-weight: 500;
+		src: url('/fonts/NotoSans-Regular.ttf') format('ttf'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+	}
+	/* dm-sans-600 - latin */
+	@font-face {
+		font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+		font-family: 'Noto Sans';
+		font-style: normal;
+		font-weight: 600;
+		src: url('/fonts/NotoSans-Medium') format('ttf'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+	}
+	/* dm-sans-700 - latin */
+	@font-face {
+		font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+		font-family: 'Noto Sans';
+		font-style: normal;
+		font-weight: 700;
+		src: url('/fonts/NotoSans-Black') format('ttf'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+	}
+	/* dm-sans-800 - latin */
+	@font-face {
+		font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+		font-family: 'Noto';
+		font-style: normal;
+		font-weight: 800;
+		src: url('/fonts/NotoSans-ExtraBold') format('ttf'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+	}
+
 	.lum-lightbox {
 		background: rgba(0, 0, 0, 0.98) !important;
 	}
+
 	* {
 		margin: 0;
 		padding: 0;
@@ -45,6 +79,10 @@ const { title } = Astro.props;
 
 	hr {
 		margin: 2rem 0;
+	}
+
+	h1, h2, h3, p {
+		font-family: 'Noto Sans', sans-serif;
 	}
 
 	.section__title {
