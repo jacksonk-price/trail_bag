@@ -3,15 +3,23 @@ import Layout from '../../layouts/Layout.astro';
 import Footer from '../../components/Footer.astro';
 import Back from '../../components/Back.astro';
 import tripData from '../../data/trips.json';
-// import Gallery from '../../components/Gallery.svelte';
 import Gallery from '../../components/Gallery.astro';
+import HeadInfo from '../../components/HeadInfo.astro';
 
 const tripName = "Eagle Rock Loop";
 
 const selectedTrip = tripData.trips.find(trip => trip.name === tripName);
+
+const info = {
+    title: "Eagle Rock Loop | 2024",
+    description: "Ouachita National Forest - Arkansas, United States",
+    ogImageUrl: '/images/eagle_rock_loop/erl-map.png',
+    canonical: 'https://trailbag.club/trips/eagle-rock-loop-2024/'
+};
 ---
 
-<Layout title="Eagle Rock Loop">
+<Layout>
+    <HeadInfo pageInfo={info} slot="head"></HeadInfo>
     <main>
         <div class="page-container">
             <Back></Back>
