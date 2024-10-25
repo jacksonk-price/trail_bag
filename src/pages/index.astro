@@ -2,13 +2,18 @@
 import Layout from '../layouts/Layout.astro';
 import Trips from '../components/Trips.astro';
 import Footer from '../components/Footer.astro';
+import HeadInfo from '../components/HeadInfo.astro';
+
+const info = {
+    title: "Welcome to Trailbag",
+    description: "A personal website to remember my trips.",
+    ogImageUrl: '/images/eagle_rock_loop/SUNP0120.webp',
+    canonical: 'https://trailbag.club/'
+};
 ---
 
 <Layout title="Trail Bag">
-	<!-- <div class="hero-container">
-		<h1>WELCOME.</h1>
-		<div class="hero" aria-hidden="true"></div>
-	</div> -->
+	<HeadInfo pageInfo={info} slot="head"></HeadInfo>
 	<main>
 		<Trips></Trips>
 	</main>
