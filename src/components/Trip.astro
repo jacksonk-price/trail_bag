@@ -25,9 +25,6 @@ const { trip } = Astro.props;
                 <p class="trip__date">{trip.date_range}, {trip.year}</p>
                 <p>📍{trip.location}</p>
                 <p>🚶{trip.distance}</p>
-                <!-- {trip.members.map((member) => (
-                    <p>{member}</p>
-                ))} -->
             </div>
             <div class="trip__content-foot">
                 <p id="seeMore" class="trip__content-link-label">See more</p>
@@ -45,10 +42,6 @@ const { trip } = Astro.props;
         justify-content: start;
         gap: 5rem;
         padding: 1rem 0;
-    }
-
-    .trip__image {
-        max-height: 300px;
     }
 
     .trip__name {
@@ -70,6 +63,12 @@ const { trip } = Astro.props;
 
         .trip__content-foot {
             margin-top: 1rem;
+        }
+    }
+
+    @media screen and (min-width: 500px) {
+        .trip__image {
+            max-height: 300px;
         }
     }
 

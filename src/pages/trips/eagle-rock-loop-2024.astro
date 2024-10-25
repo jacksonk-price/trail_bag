@@ -74,20 +74,20 @@ const selectedTrip = tripData.trips.find(trip => trip.name === tripName);
                     <figcaption class="figure__caption">The medicine man</figcaption>
                 </figure>
 
-                <Gallery images={[
-                    "/images/eagle_rock_loop/SUNP0077.webp", 
+                <Gallery images={[ 
+                    "/images/eagle_rock_loop/SUNP0072.webp",
                     "/images/eagle_rock_loop/SUNP0039.webp",
-                    "/images/eagle_rock_loop/SUNP0072.webp",  
+                    "/images/eagle_rock_loop/SUNP0077.webp",
                     "/images/eagle_rock_loop/SUNP0090.webp", 
                     "/images/eagle_rock_loop/SUNP0099.webp", 
                     "/images/eagle_rock_loop/SUNP0120.webp"
                 ]}></Gallery>
 
                 <figure class="figure">
-                    <a class="gallery" data-fancybox="gallery" href="/images/eagle_rock_loop/IMG_0830.webp" data-caption="Hello Little Missouri">
+                    <a class="gallery" data-fancybox="gallery" href="/images/eagle_rock_loop/IMG_0830.webp" data-caption="Little Missouri">
                         <img class="w-100 gallery" src="/images/eagle_rock_loop/IMG_0830.webp" alt="little missouri river">
                     </a>
-                    <figcaption class="figure__caption">Hello Little Missouri</figcaption>
+                    <figcaption class="figure__caption">Little Missouri</figcaption>
                 </figure>
 
                 <figure class="figure">
@@ -154,7 +154,11 @@ const selectedTrip = tripData.trips.find(trip => trip.name === tripName);
 
     @media screen and (max-width: 410px) {
 		.figure__caption {
-			margin: 1rem 0;
+			margin: 1rem 0 2rem 0;
 		}
+
+        .figure {
+            margin-top: 3rem;
+        }
 	}
 </style>
