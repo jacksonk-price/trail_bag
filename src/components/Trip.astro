@@ -6,6 +6,7 @@ interface Props {
         location: string;
         year: string;
         url: string;
+        distance: string;
         members: string[];
         images: string[];
     }
@@ -16,19 +17,20 @@ const { trip } = Astro.props;
 <a class="link" href={trip.url} aria-labelledby="seeMore">
     <section class="trip">
         <div class="trip__image-container">
-            <img class="trip__image" src="/images/eagle_rock_loop/SUNP0032.webp" alt="">
+            <img class="trip__image" src="/images/eagle_rock_loop/erl-map.png" alt="">
         </div>
         <div class="trip__content">
             <div class="trip__content-main">
                 <h3 class="trip__name">{trip.name}</h3>
                 <p class="trip__date">{trip.date_range}, {trip.year}</p>
                 <p>📍{trip.location}</p>
+                <p>🚶{trip.distance}</p>
                 <!-- {trip.members.map((member) => (
                     <p>{member}</p>
                 ))} -->
             </div>
             <div class="trip__content-foot">
-                <p id="seeMore">See more</p>
+                <p id="seeMore" class="trip__content-link-label">See more</p>
                 <img class="arrow-up" src="/images/arrow-up.svg" alt="" height="15" width="15">
             </div>
         </div>
@@ -86,6 +88,7 @@ const { trip } = Astro.props;
     .trip__content-foot p {
         font-weight: bold;
         font-size: 1.3rem;
+        font-size: clamp(1rem, 3vw, 1.2rem);
     }
 
     .link {

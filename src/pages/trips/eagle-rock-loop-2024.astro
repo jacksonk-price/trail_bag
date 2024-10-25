@@ -3,7 +3,8 @@ import Layout from '../../layouts/Layout.astro';
 import Footer from '../../components/Footer.astro';
 import Back from '../../components/Back.astro';
 import tripData from '../../data/trips.json';
-import Gallery from '../../components/Gallery.svelte';
+// import Gallery from '../../components/Gallery.svelte';
+import Gallery from '../../components/Gallery.astro';
 
 const tripName = "Eagle Rock Loop";
 
@@ -12,20 +13,111 @@ const selectedTrip = tripData.trips.find(trip => trip.name === tripName);
 
 <Layout title="Eagle Rock Loop">
     <main>
-        <Back></Back>
         <div class="page-container">
+            <Back></Back>
             <div class="page__head">
                 <h1 class="page__title">{selectedTrip.name}</h1>
                 <p class="trip__date">{selectedTrip.date_range}, {selectedTrip.year}</p>
                 <p class="trip__location">📍{selectedTrip.location}</p>
+                <p class="trip__distance">🚶{selectedTrip.distance}</p>
             </div>
             <div>
-                <a class="gallery" href="/images/eagle_rock_loop/IMG_0782.webp">
-                    <img class="w-100 gallery" src="/images/eagle_rock_loop/IMG_0782.webp" alt="">
-                </a>
+                <figure class="figure">
+                    <a class="gallery" data-fancybox href="/images/eagle_rock_loop/erl-map.png">
+                        <img class="w-100 gallery" src="/images/eagle_rock_loop/erl-map.png" alt="map of Eagle Rock Loop">
+                    </a>
+                    <figcaption class="figure__caption">We started in the Northwest Corner and traveled counter-clockwise. Start time was around 5:30pm on October 4th.</figcaption>
+                </figure>
             </div>
             <section>
-                <Gallery imageSrcs={selectedTrip.images} client:load></Gallery>
+                <Gallery images={["/images/eagle_rock_loop/SUNP0034.webp",
+                "/images/eagle_rock_loop/IMG_0771.webp",
+                "/images/eagle_rock_loop/IMG_0775.webp",
+                "/images/eagle_rock_loop/IMG_0781.webp",
+                "/images/eagle_rock_loop/IMG_0782.webp",
+                "/images/eagle_rock_loop/IMG_0789.webp",
+                "/images/eagle_rock_loop/IMG_0792.webp",
+                "/images/eagle_rock_loop/IMG_8024.webp",
+                "/images/eagle_rock_loop/SUNP0032.webp"]}></Gallery>
+                <figure class="figure">
+                    <a class="gallery" data-fancybox="gallery" href="/images/eagle_rock_loop/IMG_0793.webp" data-caption="The Hang Station at campsite #1">
+                        <img class="w-100 gallery" src="/images/eagle_rock_loop/IMG_0793.webp" alt="hammock at first site">
+                    </a>
+                    <figcaption class="figure__caption">The Hang Station at campsite #1</figcaption>
+                </figure>
+
+                <figure class="figure">
+                    <a class="gallery" data-fancybox="gallery" href="/images/eagle_rock_loop/IMG_0794.webp" data-caption="Dirt Dwellers">
+                        <img class="w-100 gallery" src="/images/eagle_rock_loop/IMG_0794.webp" alt="tents">
+                    </a>
+                    <figcaption class="figure__caption">Dirt Dwellers</figcaption>
+                </figure>
+                <Gallery images={[
+                     "/images/eagle_rock_loop/IMG_0825.webp",
+                    "/images/eagle_rock_loop/IMG_0805.webp",
+                    "/images/eagle_rock_loop/IMG_0807.webp",
+                    "/images/eagle_rock_loop/IMG_0809.webp",
+                    "/images/eagle_rock_loop/IMG_0810.webp",
+                    "/images/eagle_rock_loop/IMG_0814.webp",
+                    "/images/eagle_rock_loop/IMG_0819.webp",
+                    "/images/eagle_rock_loop/IMG_0824.webp",
+                    "/images/eagle_rock_loop/SUNP0071.webp",
+                    "/images/eagle_rock_loop/IMG_0801.webp",
+                    "/images/eagle_rock_loop/IMG_0847.webp",
+                    "/images/eagle_rock_loop/IMG_0026.webp"
+                ]}></Gallery>
+
+                <figure class="figure">
+                    <a class="gallery" data-fancybox="gallery" href="/images/eagle_rock_loop/SUNP0035.webp" data-caption="The medicine man">
+                        <img class="w-100 gallery" src="/images/eagle_rock_loop/SUNP0035.webp" alt="the medicine man">
+                    </a>
+                    <figcaption class="figure__caption">The medicine man</figcaption>
+                </figure>
+
+                <Gallery images={[
+                    "/images/eagle_rock_loop/SUNP0077.webp", 
+                    "/images/eagle_rock_loop/SUNP0039.webp",
+                    "/images/eagle_rock_loop/SUNP0072.webp",  
+                    "/images/eagle_rock_loop/SUNP0090.webp", 
+                    "/images/eagle_rock_loop/SUNP0099.webp", 
+                    "/images/eagle_rock_loop/SUNP0120.webp"
+                ]}></Gallery>
+
+                <figure class="figure">
+                    <a class="gallery" data-fancybox="gallery" href="/images/eagle_rock_loop/IMG_0830.webp" data-caption="Hello Little Missouri">
+                        <img class="w-100 gallery" src="/images/eagle_rock_loop/IMG_0830.webp" alt="little missouri river">
+                    </a>
+                    <figcaption class="figure__caption">Hello Little Missouri</figcaption>
+                </figure>
+
+                <figure class="figure">
+                    <a class="gallery" data-fancybox="gallery" href="/images/eagle_rock_loop/IMG_8036.webp" data-caption="Tusken Raider">
+                        <img class="w-100 gallery" src="/images/eagle_rock_loop/IMG_8036.webp" alt="stick guy">
+                    </a>
+                    <figcaption class="figure__caption">Tusken Raider</figcaption>
+                </figure>
+
+                <Gallery images={[
+                    "/images/eagle_rock_loop/SUNP0109.webp", 
+                "/images/eagle_rock_loop/SUNP0117.webp", 
+                "/images/eagle_rock_loop/SUNP0118.webp"
+                ]}></Gallery>
+
+                <figure class="figure">
+                    <a class="gallery" data-fancybox="gallery" href="/images/eagle_rock_loop/IMG_0837.webp" data-caption="Campsite #2">
+                        <img class="w-100 gallery" src="/images/eagle_rock_loop/IMG_0837.webp" alt="campfire">
+                    </a>
+                    <figcaption class="figure__caption">Campsite #2</figcaption>
+                </figure>
+
+                <Gallery images={selectedTrip.images}></Gallery>
+
+                <figure class="figure">
+                    <a class="gallery" data-fancybox="gallery" href="/images/eagle_rock_loop/IMG_0816.webp" data-caption="Stevie Wondering why...">
+                        <img class="w-100 gallery" src="/images/eagle_rock_loop/IMG_0816.webp" alt="contemplating man">
+                    </a>
+                    <figcaption class="figure__caption">Stevie Wondering why...</figcaption>
+                </figure>
             </section>
         </div>
 	</main>
@@ -38,7 +130,7 @@ const selectedTrip = tripData.trips.find(trip => trip.name === tripName);
     }
 
     .page-container {
-        max-width: 1200px;
+        max-width: 800px;
         margin: 0 auto;
     }
 
@@ -51,5 +143,12 @@ const selectedTrip = tripData.trips.find(trip => trip.name === tripName);
         display: flex;
         gap: 0.5rem;
         flex-direction: column;
+    }
+
+    .figure__caption {
+        color: #707070;
+        line-height: 1.6;
+        text-align: center;
+        margin: 1rem 0 3rem 0;
     }
 </style>

@@ -1,20 +1,18 @@
-<script>
-    export let imageSrcs;
+---
+interface Props {
+    images: string[];
+}
 
-    import { LuminousGallery } from 'luminous-lightbox';
-    import { onMount } from 'svelte';
 
-    onMount(() => {
-        new LuminousGallery(document.querySelectorAll(".gallery"));
-    });
-</script>
+const { images } = Astro.props;
+---
 
 <div class="image-grid">
-    {#each imageSrcs as src (src)}
-        <a class="gallery" href={src}>
-            <img src={src} alt="poo{src}" loading="lazy">
+    {images.map((src) => (
+        <a class="gallery" href={src} data-fancybox="gallery">
+          <img src={src} alt="something happening on the trip" loading="lazy" />
         </a>
-    {/each}
+    ))}
 </div>
 
 <style>
@@ -24,6 +22,7 @@
         gap: 10px;
         padding: 1rem 0;
         grid-template-rows: masonry;
+        margin-bottom: 3rem;
     }
 
     .image-grid img {
